@@ -10,7 +10,7 @@ public class ObjectsPool : MonoBehaviour
     [SerializeField] private Camera _camera;
     private List<Ground> _partsPool = new List<Ground>();
 
-    private void Start()
+    private void OnEnable()
     {
         foreach (var item in _partTeamplates)
         {

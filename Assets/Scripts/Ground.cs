@@ -9,5 +9,4 @@ public class Ground : MonoBehaviour
 
     public Transform Begin => _begin;
     public Transform End => _end;
-
 }
