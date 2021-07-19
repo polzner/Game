@@ -8,6 +8,7 @@ public class ObjectsPool : MonoBehaviour
     [SerializeField] private Ground[] _partTeamplates;
     [SerializeField] Transform _container;
     [SerializeField] private Camera _camera;
+
     private List<Ground> _partsPool = new List<Ground>();
 
     private void OnEnable()
