@@ -10,10 +10,21 @@ public class GroundPlacer : MonoBehaviour
 
     private void Start()
     {
+        PlaceFirstPart();
+    }
+
+    private void PlaceFirstPart()
+    {
         _pool.TryGetObject(out Ground part);
         part.gameObject.SetActive(true);
         part.transform.position = Vector3.zero;
         _currentPart = part;
+    }
+
+    public void Restart()
+    {
+        _pool.ResetPool();
+        PlaceFirstPart();
     }
 
     private void Update()
@@ -33,5 +44,5 @@ public class GroundPlacer : MonoBehaviour
             newPart.transform.position = _currentPart.End.position - newPart.Begin.localPosition;
             _currentPart = newPart; 
         }
-    }
+    }    
 }

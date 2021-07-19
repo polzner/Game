@@ -12,11 +12,25 @@ public class ObjectsPool : MonoBehaviour
 
     private void OnEnable()
     {
+        FillPool();
+    }
+
+    private void FillPool()
+    {
         foreach (var item in _partTeamplates)
         {
-            var part = Instantiate(item,_container);
+            var part = Instantiate(item, _container);
             _partsPool.Add(part);
             part.gameObject.SetActive(false);
+        }
+    }
+
+    public void ResetPool()
+    {
+        foreach (var item in _partsPool)
+        {
+            item.gameObject.SetActive(false);
+            item.transform.position = _container.position;
         }
     }
 
