@@ -6,6 +6,8 @@ public class GroundPlacer : MonoBehaviour
 {
     [SerializeField] private Transform _sphere;
     [SerializeField] private ObjectsPool _pool;
+
+    private float _distanceToSpawn = 15;
     private Ground _currentPart;
 
     private void Start()
@@ -27,9 +29,9 @@ public class GroundPlacer : MonoBehaviour
         PlaceFirstPart();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if (_sphere.position.x > _currentPart.transform.position.x - 30)
+        if (_currentPart.transform.position.x - _sphere.position.x < _distanceToSpawn)
         {
             SpawnPart();
             _pool.DeselectOutOfScreen();
